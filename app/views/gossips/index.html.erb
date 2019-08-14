@@ -1,0 +1,37 @@
+<div class="za">
+  <h1 style="padding-top: 100px">Welcome to The Gossip Project</h1>
+
+  <h2> Voisci la liste de tout les potins </h2>
+
+  
+  <h3>
+    <a href="/gossips/new" class="btn-btn-primary" role="button">Create gossip</a> 
+  </h3>  
+
+
+
+
+<div class="fondiv">
+   <%	@gossip.each_with_index do |gossip, index|%>
+   <div class="card text-white bg-secondary mb-3" style="width: 100rem;">
+       <div class="fondiv" >
+        Potin N° <%=index + 1%>
+        </div>
+   <div class="fondiv" >
+        <h3 class="card-title"><%= gossip.user.first_name %></h3>
+        <h2 class="card-text"><%= gossip.title %></h2>
+        <p>
+          <!-- <a href="/gossips/edit" class="btn-btn-primary" role="button"> Edit </a>  -->
+           <%= link_to "Edit", edit_gossip_url(index + 1)%> 
+           <%= link_to "Afficher le potin", gossip_path(index + 1)%> 
+           <%= link_to "Suprimer le potin", gossip, :confirm => "Vous êtes sûr?", :methode => :delete%>
+        </p>
+   </div>
+   <div class="card-footer text-muted" >
+        crée le <%= gossip.created_at%>
+   </div>
+   </div>
+   <h3> _______________________________________________________________________________________________ </h3>
+   <% end %>
+  </div> 
+</div>

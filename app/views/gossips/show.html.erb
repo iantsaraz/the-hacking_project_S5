@@ -1,0 +1,18 @@
+<head>
+  
+</head>
+<body >
+  <div class="card text-center">
+    <div class="card-header">
+      <%= @gossip.user.first_name %> <%= @gossip.user.last_name %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= @gossip.title %></h5>
+      <p class="card-text"><%= @gossip.content %></p>
+      <%= link_to "A  propos de l'auteur", user_path(@gossip.user.id)%>
+    </div>
+    <div class="card-footer text-muted">
+      <%= @gossip.created_at %>
+    </div>
+  </div>
+</body>
